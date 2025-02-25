@@ -1,0 +1,110 @@
+---
+Language: C
+
+ColumnLimit: 80
+#AccessModifierOffset: -1
+Cpp11BracedListStyle: true
+AlignAfterOpenBracket: Align
+AlignArrayOfStructures: None
+# 连续赋值对齐
+AlignConsecutiveAssignments:
+    Enabled: true
+    AcrossEmptyLines: false
+    AcrossComments: true
+    AlignCompound: true
+    # AlignFunctionPointers: true
+    PadOperators: true
+# 连续位域对齐
+AlignConsecutiveBitFields:
+    Enabled: true
+    AcrossEmptyLines: true
+    AcrossComments: true
+    AlignCompound: true
+    # AlignFunctionPointers: true
+    PadOperators: true
+# 连续声明对齐
+AlignConsecutiveDeclarations:
+    Enabled: true
+    AcrossEmptyLines: false
+    AcrossComments: false
+    AlignCompound: true
+    # AlignFunctionPointers: true
+    PadOperators: true
+# 连续宏定义对齐
+AlignConsecutiveMacros:
+    Enabled: true
+    AcrossEmptyLines: false
+    AcrossComments: false
+    AlignCompound: true
+    # AlignFunctionPointers: true
+    PadOperators: true
+# AlignConsecutiveShortCaseStatements:
+    # Enabled: true
+    # AcrossEmptyLines: true
+    # AcrossComments: true
+    # AlignCaseColons: false
+AlignEscapedNewlines: Left
+AlignOperands: AlignAfterOperator
+# AlignTrailingComments:
+    # Kind:           Always
+    # TrailingCommentsAlignmentKinds: Always
+    # OverEmptyLines: 2
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: Empty
+# AllowShortCaseExpressionOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakBeforeMultilineStrings: false
+BinPackArguments: false
+BinPackParameters: false
+BitFieldColonSpacing: None
+# 大括号后换行
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterCaseLabel: false
+    AfterControlStatement: Never
+    AfterEnum: false
+    AfterFunction: true
+    AfterStruct: false
+    AfterUnion: false
+    AfterExternBlock: false
+    BeforeElse: false
+    BeforeWhile: false
+    SplitEmptyFunction: false
+BracedInitializerIndentWidth: 4
+BreakAdjacentStringLiterals: true
+BreakBeforeTernaryOperators: true
+BreakStringLiterals: false
+ForEachMacros: [DLIST_FOREACH, DLIST_FOREACH_SAFE,
+    DLIST_FOREACH_FROM, DLIST_FOREACH_FROM_SAFE,
+    DLIST_REVERSE_FOREACH,  DLIST_REVERSE_FOREACH_SAFE,
+    DLIST_REVERSE_FOREACH_FROM, DLIST_REVERSE_FOREACH_FROM_SAFE]
+IfMacros: [CATCH]
+IncludeBlocks: Regroup
+IndentCaseBlocks: true
+IndentGotoLabels: true
+IndentPPDirectives: BeforeHash
+IndentWidth: 4
+InsertNewlineAtEOF: true
+InsertTrailingCommas: Wrapped
+MaxEmptyLinesToKeep: 2
+# QualifierAlignment: Custom
+SpaceAfterCStyleCast: true
+SpaceAfterLogicalNot: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCaseColon: false
+SpaceBeforeParens: ControlStatementsExceptControlMacros
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: true
+# 括号中的空格
+SpacesInParens: Custom
+SpacesInParensOptions:
+    # ExceptDoubleParentheses: true
+    InConditionalStatements: true
+    InEmptyParentheses: false
+    InCStyleCasts: false
+    Other: true
