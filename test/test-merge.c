@@ -4,8 +4,8 @@
 #include <stdio.h>
 
 int main(void) {
-  int32_t rc = 0;
-  Item tmp_item;
+  int32_t rc = 0, arr_len = 5;
+  Item tmp_item[3];
   Item array[5];
   DECL_DATA(array[0], 1, "ABC", &array[4]);
   DECL_DATA(array[1], 5, "JXX", NULL);
@@ -13,14 +13,15 @@ int main(void) {
   DECL_DATA(array[3], 4, "MAGA", NULL);
   DECL_DATA(array[4], 1, "DEF", NULL);
 
-  SHOW_ARRAY("Before Sort", array, 5);
+  itme_travel(array, arr_len, "Before Sort");
 
-  rc = surt_bubble(array, 5, sizeof(Item), item_cmp, &tmp_item, SOPT_DEFAULT);
+  rc = surt_merge_r(array, arr_len, sizeof(Item), item_cmp, itme_travel, NULL,
+                    SOPT_DEFAULT);
   if (rc == -1) {
     printf("Sort Function Call Failed\n");
   }
 
-  SHOW_ARRAY("After Sort", array, 5);
+  itme_travel(array, arr_len, "After Sort");
 
   return 0;
 }

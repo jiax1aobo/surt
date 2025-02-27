@@ -3,6 +3,12 @@ add_library(surt STATIC
     surt_bubble.c
     surt_select.c
     surt_insert.c
+    surt_merge.c
+)
+
+target_compile_definitions(
+    surt PRIVATE
+    $<$<CONFIG:Debug>:DEBUG_MODE>
 )
 
 target_include_directories(surt PUBLIC

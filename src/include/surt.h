@@ -10,6 +10,7 @@ static const uint16_t SOPT_INVERSE_ORDER = 0x8000;
 static const uint16_t SOPT_ORDER_MASK = 0x8000;
 
 typedef int64_t (*cmp_fn_p)(const void *a, const void *b);
+typedef void (*trv_fn_p)(void *arr, uint32_t len, const char *msg);
 
 #define surt_swap(_sz, _a, _b, _tmp)                                           \
   do {                                                                         \
@@ -18,11 +19,11 @@ typedef int64_t (*cmp_fn_p)(const void *a, const void *b);
     memcpy(_a, _tmp, _sz);                                                     \
   } while (0)
 
-#define surt_move_insert(m_sz, m, sz, b, tmp)                                  \
+#define surt_move_insert(m_sz, mv, sz, b, tmp)                                 \
   do {                                                                         \
     memcpy(tmp, b, sz);                                                        \
-    memcpy(m + sz, m, m_sz);                                                   \
-    memcpy(m, tmp, sz);                                                        \
+    memcpy(mv + sz, mv, m_sz);                                                 \
+    memcpy(mv, tmp, sz);                                                       \
   } while (0)
 /**********************
  * Assistant Function
@@ -43,7 +44,9 @@ int32_t surt_insert(void *arr_ptr, int32_t arr_len, int32_t elem_sz,
 
 //! @todo merge
 
-//! @todo merge recursive
+int32_t surt_merge_r(void *arr_ptr, uint32_t arr_len, uint32_t elem_sz,
+                     cmp_fn_p fn_cmp, trv_fn_p fn_trv, void *tmp_buff,
+                     uint16_t option);
 
 /*****************
  * Unstable Sort

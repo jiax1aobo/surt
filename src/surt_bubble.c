@@ -6,8 +6,8 @@
 #include "surt.h"
 
 #ifdef DEBUG_MODE
-static int32_t _bubble_sort_pass_cnt;
-static int32_t _bubble_sort_swap_cnt;
+static uint32_t _bubble_sort_pass_cnt;
+static uint32_t _bubble_sort_swap_cnt;
 #endif /* DEBUG_MODE */
 
 int32_t surt_bubble(void *arr_ptr, int32_t arr_len, int32_t elem_sz,
