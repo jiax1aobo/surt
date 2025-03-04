@@ -5,6 +5,7 @@ add_library(surt STATIC
     surt_insert.c
     surt_merge.c
     surt_quick.c
+    surt_heap.c
 )
 
 target_compile_definitions(

@@ -1,13 +1,6 @@
 #ifndef _SURT_H_
 #define _SURT_H_ 1
 
-#ifdef DEBUG_MODE
-#include <assert.h>
-#define DASSERT(_expr) assert(_expr)
-#else
-#define DASSERT(_expr)
-#endif /* DEBUG_MODE */
-
 #include <stdint.h>
 #include <string.h>
 
@@ -65,6 +58,8 @@ int32_t surt_quick_r(void *arr_ptr, uint32_t arr_len, uint32_t elem_sz,
                      cmp_fn_p fn_cmp, trv_fn_p fn_trv, void *tmp_buff,
                      uint16_t option);
 
-//! @todo heap
+int32_t surt_heap(void *arr_ptr, uint32_t arr_len, uint32_t elem_sz,
+                  cmp_fn_p fn_cmp, trv_fn_p fn_trv, void *tmp_buff,
+                  uint16_t option);
 
 #endif /* _SURT_H_ */

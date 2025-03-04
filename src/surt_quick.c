@@ -63,13 +63,27 @@ int32_t surt_quick_r(void *arr_ptr, uint32_t arr_len, uint32_t elem_sz,
   }
 
   if (low < j) {
-    DASSERT(surt_quick_r(arr_ptr + elem_sz * low, j - low + 1, elem_sz, fn_cmp,
-                         fn_trv, tmp_elem, option) == 0);
+#ifdef DEBUG_MODE
+    if (surt_quick_r(arr_ptr + elem_sz * low, j - low + 1, elem_sz, fn_cmp,
+                     fn_trv, tmp_elem, option) != 0) {
+      goto fatal_call_error;
+    }
+#else  /* DEBUG_MODE */
+    surt_quick_r(arr_ptr + elem_sz * low, j - low + 1, elem_sz, fn_cmp, fn_trv,
+                 tmp_elem, option);
+#endif /* DEBUG_MODE */
   }
 
   if (i < high) {
-    DASSERT(surt_quick_r(arr_ptr + elem_sz * i, high - i + 1, elem_sz, fn_cmp,
-                         fn_trv, tmp_elem, option) == 0);
+#ifdef DEBUG_MODE
+    if (surt_quick_r(arr_ptr + elem_sz * i, high - i + 1, elem_sz, fn_cmp,
+                     fn_trv, tmp_elem, option) != 0) {
+      goto fatal_call_error;
+    }
+#else  /* DEBUG_MODE */
+    surt_quick_r(arr_ptr + elem_sz * i, high - i + 1, elem_sz, fn_cmp, fn_trv,
+                 tmp_elem, option);
+#endif /* DEBUG_MODE */
   }
 
   if (alloc_flag == true) {
@@ -77,6 +91,11 @@ int32_t surt_quick_r(void *arr_ptr, uint32_t arr_len, uint32_t elem_sz,
   }
 
   return 0;
+
+fatal_call_error:
+  if (alloc_flag == true) {
+    free(tmp_elem);
+  }
 
 fatal_malloc_error:
 
